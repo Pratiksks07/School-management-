@@ -110,7 +110,7 @@ class Toplevel1:
         self.Button1.configure(foreground="#000000")
         self.Button1.configure(highlightbackground="#d9d9d9")
         self.Button1.configure(highlightcolor="#000000")
-        self.Button1.configure(text='''Submit''')
+        self.Button1.configure(text='''Submit 2.0''')
 
 def start_up():
     test_support.main()
