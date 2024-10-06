@@ -66,7 +66,7 @@ class Toplevel1:
         self.TLabel1.configure(relief="flat")
         self.TLabel1.configure(anchor='center')
         self.TLabel1.configure(justify='center')
-        photo_location = os.path.join(_location,"Web-Development-at-Auxous-Network.png")
+        photo_location = os.path.join(_location,".\Image\Login.png")
         global _img0
         _img0 = tk.PhotoImage(file=photo_location)
         self.TLabel1.configure(image=_img0)
