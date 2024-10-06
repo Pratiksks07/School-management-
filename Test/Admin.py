@@ -62,11 +62,11 @@ class Toplevel1:
 
         self.TLabel1 = ttk.Label(self.TFrame1)
         self.TLabel1.place(relx=-0.785, rely=-0.336, height=817, width=946)
-        self.TLabel1.configure(font="TkDefaultFont")
+        self.TLabel1.configure(font="")
         self.TLabel1.configure(relief="flat")
         self.TLabel1.configure(anchor='center')
         self.TLabel1.configure(justify='center')
-        photo_location = os.path.join(_location,"C:/Users/LENOVO/Desktop/New folder/School-management-/Test/Web-Development-at-Auxous-Network.png")
+        photo_location = os.path.join(_location,"Web-Development-at-Auxous-Network.png")
         global _img0
         _img0 = tk.PhotoImage(file=photo_location)
         self.TLabel1.configure(image=_img0)
