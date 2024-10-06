@@ -111,10 +111,10 @@ class Toplevel1:
         self.Label1_1.configure(foreground="#000000")
         self.Label1_1.configure(highlightbackground="#d9d9d9")
         self.Label1_1.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"./images/close_active.gif")
-        global _img0
-        _img0 = tk.PhotoImage(file=photo_location)
-        self.Label1_1.configure(image=_img0)
+       # photo_location = os.path.join(_location,"./images/close_active.gif")
+       # global _img0
+        #_img0 = tk.PhotoImage(file=photo_location)
+        #self.Label1_1.configure(image=_img0)
         self.Label1_1.configure(relief="groove")
         self.Label1_1.configure(text='''Test Var''')
 
@@ -129,10 +129,10 @@ class Toplevel1:
         self.Label1.configure(foreground="#000000")
         self.Label1.configure(highlightbackground="#d9d9d9")
         self.Label1.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"./images/close_active.gif")
-        global _img1
-        _img1 = tk.PhotoImage(file=photo_location)
-        self.Label1.configure(image=_img1)
+       # photo_location = os.path.join(_location,"./images/close_active.gif")
+       # global _img1
+       # _img1 = tk.PhotoImage(file=photo_location)
+       # self.Label1.configure(image=_img1)
         self.Label1.configure(relief="groove")
         self.Label1.configure(text='''Test Var''')
 
