@@ -13,6 +13,18 @@ import os.path
 
 _location = os.path.dirname(__file__)
 
+def greet():
+    print("Hello, welcome to the app!")
+
+"""
+def submit():
+    id_var = id.get()
+    passw1 = passw.get()
+
+    print(id_var,passw1)
+
+    id.set("")
+    passw.set("")"""
 import test_support
 
 _bgcolor = '#d9d9d9'
@@ -23,10 +35,24 @@ _bgmode = 'light'
 _tabbg1 = '#d9d9d9' 
 _tabbg2 = 'gray40' 
 
+def submit():
+
+    name=name_var.get()
+    password=passw_var.get()
+    
+    print("The name is : " + name)
+    print("The password is : " + password)
+    
+    name_var.set("")
+    passw_var.set("")
+
 class Toplevel1:
     def __init__(self, top=None):
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
+        global name_var,passw_var
+        name_var=tk.StringVar()
+        passw_var=tk.StringVar()
 
         top.geometry("600x450+337+177")
         top.minsize(120, 1)
@@ -53,7 +79,7 @@ class Toplevel1:
         self.Label1.configure(relief="raised")
         self.Label1.configure(text='''Login''')
 
-        self.Entry1 = tk.Entry(self.top)
+        self.Entry1 = tk.Entry(self.top,textvariable = name_var)
         self.Entry1.place(relx=0.15, rely=0.311, height=20, relwidth=0.14)
         self.Entry1.configure(background="white")
         self.Entry1.configure(disabledforeground="#a3a3a3")
@@ -89,7 +115,7 @@ class Toplevel1:
         self.Message2.configure(text='''Password''')
         self.Message2.configure(width=60)
 
-        self.Entry2 = tk.Entry(self.top)
+        self.Entry2 = tk.Entry(self.top,textvariable=passw_var)
         self.Entry2.place(relx=0.15, rely=0.4, height=20, relwidth=0.14)
         self.Entry2.configure(background="white")
         self.Entry2.configure(disabledforeground="#a3a3a3")
@@ -101,7 +127,7 @@ class Toplevel1:
         self.Entry2.configure(selectbackground="#d9d9d9")
         self.Entry2.configure(selectforeground="black")
 
-        self.Button1 = tk.Button(self.top)
+        self.Button1 = tk.Button(self.top,command=submit)
         self.Button1.place(relx=0.167, rely=0.511, height=26, width=47)
         self.Button1.configure(activebackground="#d9d9d9")
         self.Button1.configure(activeforeground="black")
@@ -117,7 +143,8 @@ def start_up():
 
 if __name__ == '__main__':
     test_support.main()
+"""
+id=tk.StringVar()
+passw= tk.stringVar()
 
-
-
-
+"""
