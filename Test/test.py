@@ -10,7 +10,7 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter.constants import *
 import os.path
-
+from page2 import Toplevel1
 _location = os.path.dirname(__file__)
 
 def greet():
