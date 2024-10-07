@@ -1,2 +1,2 @@
-import tkinter as tk
-tk._test()
+#import tkinter as tk
+#tk._test()
