@@ -41,7 +41,7 @@ class Toplevel1:
 
         self.Message1 = tk.Message(self.top)
         self.Message1.place(relx=0.055, rely=0.091, relheight=0.137
-                , relwidth=0.305)
+                , relwidth=0.359)
         self.Message1.configure(background="#dbe6ff")
         self.Message1.configure(font="-family {Sitka Display} -size 72 -weight bold")
         self.Message1.configure(foreground="#000000")
@@ -50,7 +50,7 @@ class Toplevel1:
         self.Message1.configure(padx="1")
         self.Message1.configure(pady="1")
         self.Message1.configure(text='''WELCOME''')
-        self.Message1.configure(width=475)
+        self.Message1.configure(width=460)
 
         self.Button1_1_2 = tk.Button(self.top)
         self.Button1_1_2.place(relx=-0.174, rely=0.232, height=120, width=120)
@@ -226,8 +226,8 @@ class Toplevel1:
         self.back.configure(text='''Back''')
 
         self.Message2 = tk.Message(self.top)
-        self.Message2.place(relx=0.065, rely=0.227, relheight=0.091
-                , relwidth=0.152)
+        self.Message2.place(relx=0.063, rely=0.244, relheight=0.105
+                , relwidth=0.165)
         self.Message2.configure(background="#dbe6ff")
         self.Message2.configure(font="-family {Sitka Display} -size 48 -weight bold")
         self.Message2.configure(foreground="#000000")
@@ -236,7 +236,7 @@ class Toplevel1:
         self.Message2.configure(padx="1")
         self.Message2.configure(pady="1")
         self.Message2.configure(text='''Student''')
-        self.Message2.configure(width=283)
+        self.Message2.configure(width=300)
 
 def start_up():
     wlc_st_support.main()
