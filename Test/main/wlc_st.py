@@ -150,7 +150,7 @@ class Toplevel1:
         self.tbd.configure(text='''Button''')
 
         self.Message3 = tk.Message(self.top)
-        self.Message3.place(relx=0.124, rely=0.631, relheight=0.024
+        self.Message3.place(relx=0.130, rely=0.650, relheight=0.024
                 , relwidth=0.046)
         self.Message3.configure(background="#dbe6ff")
         self.Message3.configure(font="-family {Segoe UI} -size 14")
@@ -163,7 +163,7 @@ class Toplevel1:
         self.Message3.configure(width=70)
 
         self.Message3_1 = tk.Message(self.top)
-        self.Message3_1.place(relx=0.339, rely=0.618, relheight=0.039
+        self.Message3_1.place(relx=0.345, rely=0.645, relheight=0.039
                 , relwidth=0.059)
         self.Message3_1.configure(background="#dbe6ff")
         self.Message3_1.configure(font="-family {Segoe UI} -size 14")
@@ -176,8 +176,8 @@ class Toplevel1:
         self.Message3_1.configure(width=90)
 
         self.Message3_1_1 = tk.Message(self.top)
-        self.Message3_1_1.place(relx=0.553, rely=0.618, relheight=0.039
-                , relwidth=0.066)
+        self.Message3_1_1.place(relx=0.555, rely=0.645, relheight=0.045
+                , relwidth=0.075)
         self.Message3_1_1.configure(background="#dbe6ff")
         self.Message3_1_1.configure(font="-family {Segoe UI} -size 14")
         self.Message3_1_1.configure(foreground="black")
@@ -189,7 +189,7 @@ class Toplevel1:
         self.Message3_1_1.configure(width=101)
 
         self.Message3_1_1_1 = tk.Message(self.top)
-        self.Message3_1_1_1.place(relx=0.775, rely=0.618, relheight=0.039
+        self.Message3_1_1_1.place(relx=0.775, rely=0.645, relheight=0.039
                 , relwidth=0.074)
         self.Message3_1_1_1.configure(background="#dbe6ff")
         self.Message3_1_1_1.configure(font="-family {Segoe UI} -size 14")
@@ -202,7 +202,7 @@ class Toplevel1:
         self.Message3_1_1_1.configure(width=112)
 
         self.Message3_1_1_1_1 = tk.Message(self.top)
-        self.Message3_1_1_1_1.place(relx=0.111, rely=0.883, relheight=0.039
+        self.Message3_1_1_1_1.place(relx=0.118, rely=0.900, relheight=0.039
                 , relwidth=0.074)
         self.Message3_1_1_1_1.configure(background="#dbe6ff")
         self.Message3_1_1_1_1.configure(font="-family {Segoe UI} -size 14")
