@@ -28,10 +28,10 @@ class Toplevel1:
         '''This class configures and populates the toplevel window.
            top is the toplevel containing window.'''
 
-        top.geometry("1536x793+-8+-8")
+        top.geometry("1280x657+-8+-8")
         top.minsize(120, 1)
         top.maxsize(1540, 845)
-        top.resizable(1,  1)
+        top.resizable(0,  0)
         top.title("Toplevel 0")
         top.configure(background="#dbe6ff")
         top.configure(highlightbackground="#d9d9d9")
@@ -41,7 +41,7 @@ class Toplevel1:
 
         self.Message1 = tk.Message(self.top)
         self.Message1.place(relx=0.055, rely=0.091, relheight=0.137
-                , relwidth=0.299)
+                , relwidth=0.305)
         self.Message1.configure(background="#dbe6ff")
         self.Message1.configure(font="-family {Sitka Display} -size 72 -weight bold")
         self.Message1.configure(foreground="#000000")
@@ -50,7 +50,7 @@ class Toplevel1:
         self.Message1.configure(padx="1")
         self.Message1.configure(pady="1")
         self.Message1.configure(text='''WELCOME''')
-        self.Message1.configure(width=462)
+        self.Message1.configure(width=475)
 
         self.Button1_1_2 = tk.Button(self.top)
         self.Button1_1_2.place(relx=-0.174, rely=0.232, height=120, width=120)
@@ -76,7 +76,7 @@ class Toplevel1:
         self.prof.configure(foreground="#000000")
         self.prof.configure(highlightbackground="#d9d9d9")
         self.prof.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"../Users/kr866/Desktop/ip/School-management-/Test/Image/Details1.png")
+        photo_location = os.path.join(_location,"../Image/Details1.png")
         global _img0
         _img0 = tk.PhotoImage(file=photo_location)
         self.prof.configure(image=_img0)
@@ -92,7 +92,7 @@ class Toplevel1:
         self.msg_stu.configure(foreground="#000000")
         self.msg_stu.configure(highlightbackground="#d9d9d9")
         self.msg_stu.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"../Users/kr866/Desktop/ip/School-management-/Test/Image/Message1.png")
+        photo_location = os.path.join(_location,"../Image/Message1.png")
         global _img1
         _img1 = tk.PhotoImage(file=photo_location)
         self.msg_stu.configure(image=_img1)
@@ -108,7 +108,7 @@ class Toplevel1:
         self.asg_stu.configure(foreground="#000000")
         self.asg_stu.configure(highlightbackground="#d9d9d9")
         self.asg_stu.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"../Users/kr866/Desktop/ip/School-management-/Test/Image/Assignment1.png")
+        photo_location = os.path.join(_location,"../Image/Assignment1.png")
         global _img2
         _img2 = tk.PhotoImage(file=photo_location)
         self.asg_stu.configure(image=_img2)
@@ -125,7 +125,7 @@ class Toplevel1:
         self.atd_stu.configure(foreground="#000000")
         self.atd_stu.configure(highlightbackground="#d9d9d9")
         self.atd_stu.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"../Users/kr866/Desktop/ip/School-management-/Test/Image/Attendance1.png")
+        photo_location = os.path.join(_location,"../Image/Attendance1.png")
         global _img3
         _img3 = tk.PhotoImage(file=photo_location)
         self.atd_stu.configure(image=_img3)
@@ -142,7 +142,7 @@ class Toplevel1:
         self.tbd.configure(foreground="#000000")
         self.tbd.configure(highlightbackground="#d9d9d9")
         self.tbd.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"../Users/kr866/Desktop/ip/School-management-/Test/Image/Time_table1.png")
+        photo_location = os.path.join(_location,"../Image/Time_table1.png")
         global _img4
         _img4 = tk.PhotoImage(file=photo_location)
         self.tbd.configure(image=_img4)
