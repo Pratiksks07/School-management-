@@ -32,11 +32,11 @@ class profile_stu(tk.Frame):
 
         self.top = self
         
-        self.tphone = tk.Text(self.top,font=(24))
+        self.tphone = tk.Text(self.top)
         self.tphone.place(relx=0.242, rely=0.893, relheight=0.040
                 , relwidth=0.175)
-        self.tphone.configure(background="white")
-        self.tphone.configure(font="TkTextFont")
+        self.tphone.configure(background="#f2f6fe")
+        self.tphone.configure(font="TkTextFont 15")
         self.tphone.configure(foreground="black")
         self.tphone.configure(highlightbackground="#d9d9d9")
         self.tphone.configure(highlightcolor="#000000")
@@ -49,11 +49,11 @@ class profile_stu(tk.Frame):
         #self.tphone.insert(END,fetch(8)
         #self.tphone.config(state="disabled")
 
-        self.tadd = tk.Text(self.top,font=(24))
+        self.tadd = tk.Text(self.top)
         self.tadd.place(relx=0.242, rely=0.817, relheight=0.040
                 , relwidth=0.175)
-        self.tadd.configure(background="white")
-        self.tadd.configure(font="TkTextFont")
+        self.tadd.configure(background="#f2f6fe")
+        self.tadd.configure(font="TkTextFont 15")
         self.tadd.configure(foreground="black")
         self.tadd.configure(highlightbackground="#d9d9d9")
         self.tadd.configure(highlightcolor="#000000")
@@ -67,11 +67,11 @@ class profile_stu(tk.Frame):
         #self.tadd.config(state="disabled")
 
 
-        self.tmname = tk.Text(self.top,font=(24))
+        self.tmname = tk.Text(self.top)
         self.tmname.place(relx=0.242, rely=0.741, relheight=0.040
                 , relwidth=0.175)
-        self.tmname.configure(background="white")
-        self.tmname.configure(font="TkTextFont")
+        self.tmname.configure(background="#f2f6fe")
+        self.tmname.configure(font="TkTextFont 15")
         self.tmname.configure(foreground="black")
         self.tmname.configure(highlightbackground="#d9d9d9")
         self.tmname.configure(highlightcolor="#000000")
@@ -84,10 +84,10 @@ class profile_stu(tk.Frame):
         #self.tmname.insert(END,fetch(6)
         #self.tmname.config(state="disabled")
 
-        self.tfname = tk.Text(self.top,font=(24))
+        self.tfname = tk.Text(self.top)
         self.tfname.place(relx=0.242, rely=0.664, relheight=0.040, relwidth=0.175)
-        self.tfname.configure(background="white")
-        self.tfname.configure(font="TkTextFont")
+        self.tfname.configure(background="#f2f6fe")
+        self.tfname.configure(font="TkTextFont 15")
         self.tfname.configure(foreground="black")
         self.tfname.configure(highlightbackground="#d9d9d9")
         self.tfname.configure(highlightcolor="#000000")
@@ -100,11 +100,11 @@ class profile_stu(tk.Frame):
         #self.tfname.insert(END,fetch(5)
         #self.tfname.config(state="disabled")
 
-        self.tadm = tk.Text(self.top,font=(24))
+        self.tadm = tk.Text(self.top)
         self.tadm.place(relx=0.242, rely=0.588, relheight=0.040
                 , relwidth=0.175)
-        self.tadm.configure(background="white")
-        self.tadm.configure(font="TkTextFont")
+        self.tadm.configure(background="#f2f6fe")
+        self.tadm.configure(font="TkTextFont 15")
         self.tadm.configure(foreground="black")
         self.tadm.configure(highlightbackground="#d9d9d9")
         self.tadm.configure(highlightcolor="#000000")
@@ -117,11 +117,11 @@ class profile_stu(tk.Frame):
         #self.tadm.insert(END,fetch(4)
         #self.tadm.config(state="disabled")
 
-        self.troll = tk.Text(self.top,font=(24))
+        self.troll = tk.Text(self.top)
         self.troll.place(relx=0.242, rely=0.512, relheight=0.040
                 , relwidth=0.175)
-        self.troll.configure(background="white")
-        self.troll.configure(font="TkTextFont")
+        self.troll.configure(background="#f2f6fe")
+        self.troll.configure(font="TkTextFont 15")
         self.troll.configure(foreground="black")
         self.troll.configure(highlightbackground="#d9d9d9")
         self.troll.configure(highlightcolor="#000000")
@@ -134,11 +134,11 @@ class profile_stu(tk.Frame):
         #self.troll.insert(END,fetch(3)
         #self.troll.config(state="disabled")
 
-        self.tsec = tk.Text(self.top,font=(24))
+        self.tsec = tk.Text(self.top)
         self.tsec.place(relx=0.242, rely=0.436, relheight=0.040
                 , relwidth=0.175)
-        self.tsec.configure(background="white")
-        self.tsec.configure(font="TkTextFont")
+        self.tsec.configure(background="#f2f6fe")
+        self.tsec.configure(font="TkTextFont 15")
         self.tsec.configure(foreground="black")
         self.tsec.configure(highlightbackground="#d9d9d9")
         self.tsec.configure(highlightcolor="#000000")
@@ -151,11 +151,11 @@ class profile_stu(tk.Frame):
         #self.tsec.insert(END,fetch(2)
         #self.tsec.config(state="disabled")
 
-        self.tname = tk.Text(self.top,font=(24))
+        self.tname = tk.Text(self.top)
         self.tname.place(relx=0.242, rely=0.284, relheight=0.040
                 , relwidth=0.175)
-        self.tname.configure(background="white")
-        self.tname.configure(font="TkTextFont")
+        self.tname.configure(background="#f2f6fe")
+        self.tname.configure(font="TkTextFont 15")
         self.tname.configure(foreground="black")
         self.tname.configure(highlightbackground="#d9d9d9")
         self.tname.configure(highlightcolor="#000000")
@@ -168,11 +168,11 @@ class profile_stu(tk.Frame):
         #self.tname.insert(END,fetch(0)
         #self.tname.config(state="disabled")
 
-        self.tclass = tk.Text(self.top,font=(24))
+        self.tclass = tk.Text(self.top)
         self.tclass.place(relx=0.242, rely=0.360, relheight=0.040
                 , relwidth=0.175)
-        self.tclass.configure(background="white")
-        self.tclass.configure(font="TkTextFont")
+        self.tclass.configure(background="#f2f6fe")
+        self.tclass.configure(font="TkTextFont 15")
         self.tclass.configure(foreground="black")
         self.tclass.configure(highlightbackground="#d9d9d9")
         self.tclass.configure(highlightcolor="#000000")

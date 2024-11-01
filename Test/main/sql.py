@@ -41,6 +41,7 @@ def login(id,passwd,self,controller):
     passwd.set("")
 
 
+
 def enrollment(name,roll,cls,sec,adm,fname,mname,phone,add,self,controller):
     stu_name = name.get()
     stu_roll = roll.get()
@@ -81,6 +82,7 @@ def enrollment(name,roll,cls,sec,adm,fname,mname,phone,add,self,controller):
     phone.set("")
     add.set("")
 
+
 def profile():
 
     global userid
@@ -102,3 +104,55 @@ def profile():
 def fetch(index):
     return var[index]
 
+
+def stu_details(self,id):
+
+    user_id = id
+    global variable
+    Q = "Select name,class,sec,roll from students where userid = %s;"
+    val = [user_id]
+
+    cur.execute(Q,val)
+    res = cur.fetchall()
+
+    for row in res:
+        name,cls,sec,roll = row
+    variable = [name,cls,sec,roll]
+    print(variable)
+    return variable
+
+def show(index):
+    return variable[index]
+
+
+def atd_update(id,pres,ab,ttl):
+    global percent
+    user_id = id
+    pres_days = int(pres)
+    ab_days = int(ab)
+    total_days = int(ttl)
+
+    percent = pres_days/total_days*100
+    print(user_id,pres_days,ab_days,percent)
+    Q = "Update students set totaldays = %s, present = %s, absent = %s, percent = %s where userid = %s"
+    val = [total_days,pres_days,ab_days,percent,user_id]
+
+    cur.execute(Q,val)
+    con.commit()
+
+def show_percent():
+    return percent
+
+
+def stu_percent():
+    Q = "Select totaldays, present,absent, percent from students where userid = %s"
+    val = [userid]
+
+    cur.execute(Q,val)
+    res = cur.fetchall()
+    for row in res:
+        total,present,absent,percentage = row
+        value = [total,present,absent,percentage]
+    return value
+
+    

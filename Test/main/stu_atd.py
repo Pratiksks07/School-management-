@@ -4,6 +4,7 @@ import tkinter.ttk as ttk
 from tkinter.constants import *
 import os.path
 from PIL import Image, ImageTk
+from sql import *
 
 
 _location = os.path.dirname(__file__)
@@ -58,7 +59,7 @@ class atd_stu(tk.Frame):
         self.total_opt.place(relx=0.211, rely=0.426, relheight=0.052
                 , relwidth=0.066)
         self.total_opt.configure(background="#f2f6fe")
-        self.total_opt.configure(font="TkTextFont")
+        self.total_opt.configure(font="TkTextFont 18 ")
         self.total_opt.configure(foreground="black")
         self.total_opt.configure(highlightbackground="#d9d9d9")
         self.total_opt.configure(highlightcolor="#000000")
@@ -66,12 +67,14 @@ class atd_stu(tk.Frame):
         self.total_opt.configure(selectbackground="#d9d9d9")
         self.total_opt.configure(selectforeground="black")
         self.total_opt.configure(wrap="word")
+        self.total_opt.bind("<Button-1>", lambda e: "break")
+        self.total_opt.bind("<Key>", lambda e: "break")
 
         self.pst_opt = tk.Text(self.top)
         self.pst_opt.place(relx=0.211, rely=0.502, relheight=0.052
                 , relwidth=0.066)
         self.pst_opt.configure(background="#f2f6fe")
-        self.pst_opt.configure(font="TkTextFont")
+        self.pst_opt.configure(font="TkTextFont 18")
         self.pst_opt.configure(foreground="black")
         self.pst_opt.configure(highlightbackground="#d9d9d9")
         self.pst_opt.configure(highlightcolor="#000000")
@@ -79,6 +82,8 @@ class atd_stu(tk.Frame):
         self.pst_opt.configure(selectbackground="#d9d9d9")
         self.pst_opt.configure(selectforeground="black")
         self.pst_opt.configure(wrap="word")
+        self.pst_opt.bind("<Button-1>", lambda e: "break")
+        self.pst_opt.bind("<Key>", lambda e: "break")
 
         self.abst = tk.Message(self.top)
         self.abst.place(relx=0.102, rely=0.578, relheight=0.058, relwidth=0.098)
@@ -122,7 +127,7 @@ class atd_stu(tk.Frame):
         self.Button1.configure(relief="flat")
 
 
-        self.Button = tk.Button(self.top)
+        self.Button = tk.Button(self.top, command= lambda:self.percent_show())
         self.Button.place(relx=0.400, rely=0.860, height=60, width=160)
         self.Button.configure(activebackground="#d9d9d9")
         self.Button.configure(activeforeground="black")
@@ -145,7 +150,7 @@ class atd_stu(tk.Frame):
         self.abst_opt.place(relx=0.211, rely=0.578, relheight=0.052
                 , relwidth=0.066)
         self.abst_opt.configure(background="#f2f6fe")
-        self.abst_opt.configure(font="TkTextFont")
+        self.abst_opt.configure(font="TkTextFont 18")
         self.abst_opt.configure(foreground="black")
         self.abst_opt.configure(highlightbackground="#d9d9d9")
         self.abst_opt.configure(highlightcolor="#000000")
@@ -153,12 +158,14 @@ class atd_stu(tk.Frame):
         self.abst_opt.configure(selectbackground="#d9d9d9")
         self.abst_opt.configure(selectforeground="black")
         self.abst_opt.configure(wrap="word")
+        self.abst_opt.bind("<Button-1>", lambda e: "break")
+        self.abst_opt.bind("<Key>", lambda e: "break")
 
         self.per_opt = tk.Text(self.top)
         self.per_opt.place(relx=0.281, rely=0.715, relheight=0.067
                 , relwidth=0.12)
         self.per_opt.configure(background="#f2f6fe")
-        self.per_opt.configure(font="TkTextFont")
+        self.per_opt.configure(font="TkTextFont 25")
         self.per_opt.configure(foreground="black")
         self.per_opt.configure(highlightbackground="#d9d9d9")
         self.per_opt.configure(highlightcolor="#000000")
@@ -166,6 +173,8 @@ class atd_stu(tk.Frame):
         self.per_opt.configure(selectbackground="#d9d9d9")
         self.per_opt.configure(selectforeground="black")
         self.per_opt.configure(wrap="word")
+        self.per_opt.bind("<Button-1>", lambda e: "break")
+        self.per_opt.bind("<Key>", lambda e: "break")
 
         self.Label1 = tk.Label(self.top)
         self.Label1.place(relx=0.555, rely=0.183, height=341, width=338)
@@ -186,3 +195,15 @@ class atd_stu(tk.Frame):
     def student(self,controller):
         from stu_wlcm import student
         controller.show_frame(student)
+        self.total_opt.delete("1.0", "end")
+        self.pst_opt.delete("1.0", "end")
+        self.abst_opt.delete("1.0", "end")
+        self.per_opt.delete("1.0", "end")
+
+
+    def percent_show(self):
+        per = stu_percent()
+        self.total_opt.insert(END,per[0])
+        self.pst_opt.insert(END,per[1])
+        self.abst_opt.insert(END,per[2])
+        self.per_opt.insert(END,per[3])

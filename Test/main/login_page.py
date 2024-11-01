@@ -14,9 +14,10 @@ class loginpage(tk.Frame):
         self.configure(background="#d9d9d9")
         self.configure(highlightbackground="#d9d9d9")
         self.configure(highlightcolor="#000000")
+        
 
         self.top = self
-
+        
         global id_var,passw_var
         id_var=tk.StringVar()
         passw_var=tk.StringVar()

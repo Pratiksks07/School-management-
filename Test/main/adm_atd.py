@@ -3,11 +3,17 @@ import tkinter as tk
 import tkinter.ttk as ttk
 from tkinter.constants import *
 import os.path
+from sql import *
 
 _location = os.path.dirname(__file__)
 
 class atd_admin(tk.Frame):
     def __init__(self, parent, controller):
+        user = tk.StringVar()
+        total = tk.StringVar()
+        present = tk.StringVar()
+        absenet = tk.StringVar()
+
         tk.Frame.__init__(self, parent,height=1020,width=1960)
 
         self.configure(background="#dbe6ff")
@@ -16,12 +22,12 @@ class atd_admin(tk.Frame):
 
         self.top = self
 
-        self.enter_total = tk.Entry(self.top)
+        self.enter_total = tk.Entry(self.top, textvariable=total)
         self.enter_total.place(relx=0.609, rely=0.331, height=30, relwidth=0.128)
 
         self.enter_total.configure(background="white")
         self.enter_total.configure(disabledforeground="#a3a3a3")
-        self.enter_total.configure(font="TkFixedFont")
+        self.enter_total.configure(font="TkFixedFont 15")
         self.enter_total.configure(foreground="#000000")
         self.enter_total.configure(highlightbackground="#d9d9d9")
         self.enter_total.configure(highlightcolor="#000000")
@@ -29,12 +35,12 @@ class atd_admin(tk.Frame):
         self.enter_total.configure(selectbackground="#d9d9d9")
         self.enter_total.configure(selectforeground="black")
 
-        self.Enter_present = tk.Entry(self.top)
+        self.Enter_present = tk.Entry(self.top, textvariable= present)
         self.Enter_present.place(relx=0.609, rely=0.424, height=30
                 , relwidth=0.128)
         self.Enter_present.configure(background="white")
         self.Enter_present.configure(disabledforeground="#a3a3a3")
-        self.Enter_present.configure(font="TkFixedFont")
+        self.Enter_present.configure(font="TkFixedFont 15")
         self.Enter_present.configure(foreground="#000000")
         self.Enter_present.configure(highlightbackground="#d9d9d9")
         self.Enter_present.configure(highlightcolor="#000000")
@@ -129,7 +135,7 @@ class atd_admin(tk.Frame):
         self.present.configure(highlightcolor="#000000")
         self.present.configure(text='''Present:''')
 
-        self.submit = tk.Button(self.top)
+        self.submit = tk.Button(self.top,command=lambda:percentage(self,user,total,present,absenet))
         self.submit.place(relx=0.615, rely=0.605, height=60, width=160)
         self.submit.configure(activebackground="#d9d9d9")
         self.submit.configure(activeforeground="black")
@@ -147,12 +153,12 @@ class atd_admin(tk.Frame):
         self.submit.configure(relief="flat")
 
 
-        self.Enter_student_id = tk.Entry(self.top)
+        self.Enter_student_id = tk.Entry(self.top, textvariable= user)
         self.Enter_student_id.place(relx=0.063, rely=0.416, height=25
                 , relwidth=0.214)
         self.Enter_student_id.configure(background="white")
         self.Enter_student_id.configure(disabledforeground="#a3a3a3")
-        self.Enter_student_id.configure(font="TkFixedFont")
+        self.Enter_student_id.configure(font="TkFixedFont 15")
         self.Enter_student_id.configure(foreground="#000000")
         self.Enter_student_id.configure(highlightbackground="#d9d9d9")
         self.Enter_student_id.configure(highlightcolor="#000000")
@@ -216,12 +222,12 @@ class atd_admin(tk.Frame):
         self.percent.configure(highlightcolor="#000000")
         self.percent.configure(text='''Percent:''')
 
-        self.Enter_absent = tk.Entry(self.top)
+        self.Enter_absent = tk.Entry(self.top, textvariable = absenet)
         self.Enter_absent.place(relx=0.609, rely=0.516, height=30
                 , relwidth=0.128)
         self.Enter_absent.configure(background="white")
         self.Enter_absent.configure(disabledforeground="#a3a3a3")
-        self.Enter_absent.configure(font="TkFixedFont")
+        self.Enter_absent.configure(font="TkFixedFont 15")
         self.Enter_absent.configure(foreground="#000000")
         self.Enter_absent.configure(highlightbackground="#d9d9d9")
         self.Enter_absent.configure(highlightcolor="#000000")
@@ -233,7 +239,7 @@ class atd_admin(tk.Frame):
         self.enter_percent.place(relx=0.613, rely=0.74, relheight=0.052
                 , relwidth=0.136)
         self.enter_percent.configure(background="white")
-        self.enter_percent.configure(font="TkTextFont")
+        self.enter_percent.configure(font="TkTextFont 18")
         self.enter_percent.configure(foreground="black")
         self.enter_percent.configure(highlightbackground="#d9d9d9")
         self.enter_percent.configure(highlightcolor="#000000")
@@ -241,12 +247,14 @@ class atd_admin(tk.Frame):
         self.enter_percent.configure(selectbackground="#d9d9d9")
         self.enter_percent.configure(selectforeground="black")
         self.enter_percent.configure(wrap="word")
+        self.enter_percent.bind("<Button-1>", lambda e: "break")
+        self.enter_percent.bind("<Key>", lambda e: "break")
 
         self.enter_name = tk.Text(self.top)
         self.enter_name.place(relx=0.133, rely=0.601, relheight=0.037
                 , relwidth=0.152)
         self.enter_name.configure(background="white")
-        self.enter_name.configure(font="TkTextFont")
+        self.enter_name.configure(font="TkTextFont 15")
         self.enter_name.configure(foreground="black")
         self.enter_name.configure(highlightbackground="#d9d9d9")
         self.enter_name.configure(highlightcolor="#000000")
@@ -254,12 +262,14 @@ class atd_admin(tk.Frame):
         self.enter_name.configure(selectbackground="#d9d9d9")
         self.enter_name.configure(selectforeground="black")
         self.enter_name.configure(wrap="word")
+        self.enter_name.bind("<Button-1>", lambda e: "break")
+        self.enter_name.bind("<Key>", lambda e: "break")
 
         self.enter_class = tk.Text(self.top)
         self.enter_class.place(relx=0.133, rely=0.663, relheight=0.037
                 , relwidth=0.152)
         self.enter_class.configure(background="white")
-        self.enter_class.configure(font="TkTextFont")
+        self.enter_class.configure(font="TkTextFont 15")
         self.enter_class.configure(foreground="black")
         self.enter_class.configure(highlightbackground="#d9d9d9")
         self.enter_class.configure(highlightcolor="#000000")
@@ -267,12 +277,14 @@ class atd_admin(tk.Frame):
         self.enter_class.configure(selectbackground="#d9d9d9")
         self.enter_class.configure(selectforeground="black")
         self.enter_class.configure(wrap="word")
+        self.enter_class.bind("<Button-1>", lambda e: "break")
+        self.enter_class.bind("<Key>", lambda e: "break")
 
         self.enter_sec = tk.Text(self.top)
         self.enter_sec.place(relx=0.133, rely=0.724, relheight=0.037
                 , relwidth=0.152)
         self.enter_sec.configure(background="white")
-        self.enter_sec.configure(font="TkTextFont")
+        self.enter_sec.configure(font="TkTextFont 15")
         self.enter_sec.configure(foreground="black")
         self.enter_sec.configure(highlightbackground="#d9d9d9")
         self.enter_sec.configure(highlightcolor="#000000")
@@ -280,12 +292,14 @@ class atd_admin(tk.Frame):
         self.enter_sec.configure(selectbackground="#d9d9d9")
         self.enter_sec.configure(selectforeground="black")
         self.enter_sec.configure(wrap="word")
+        self.enter_sec.bind("<Button-1>", lambda e: "break")
+        self.enter_sec.bind("<Key>", lambda e: "break")
 
         self.enter_roll = tk.Text(self.top)
         self.enter_roll.place(relx=0.133, rely=0.794, relheight=0.037
                 , relwidth=0.152)
         self.enter_roll.configure(background="white")
-        self.enter_roll.configure(font="TkTextFont")
+        self.enter_roll.configure(font="TkTextFont 15")
         self.enter_roll.configure(foreground="black")
         self.enter_roll.configure(highlightbackground="#d9d9d9")
         self.enter_roll.configure(highlightcolor="#000000")
@@ -293,8 +307,11 @@ class atd_admin(tk.Frame):
         self.enter_roll.configure(selectbackground="#d9d9d9")
         self.enter_roll.configure(selectforeground="black")
         self.enter_roll.configure(wrap="word")
+        self.enter_roll.bind("<Button-1>", lambda e: "break")
+        self.enter_roll.bind("<Key>", lambda e: "break")
 
-        self.search = tk.Button(self.top)
+
+        self.search = tk.Button(self.top, command=lambda: func(self,user))
         self.search.place(relx=0.285, rely=0.390, height=60, width=160)
         self.search.configure(activebackground="#d9d9d9")
         self.search.configure(activeforeground="black")
@@ -328,3 +345,56 @@ class atd_admin(tk.Frame):
     def admin(self,controller):
         from adm_wlcm import admin
         controller.show_frame(admin)
+        self.enter_name.delete("1.0", "end")
+        self.enter_class.delete("1.0", "end")
+        self.enter_sec.delete("1.0", "end")
+        self.enter_roll.delete("1.0", "end")
+        self.Enter_present.delete(0, tk.END)
+        self.Enter_absent.delete(0, tk.END)
+        self.enter_percent.delete("1.0", "end")
+        self.Enter_student_id.delete(0, tk.END)
+        self.enter_total.delete(0, tk.END)
+
+
+
+    global stu_fetch
+    def stu_fetch(self):
+        from sql import show
+        self.enter_name.insert(END,show(0))
+        self.enter_class.insert(END,show(1))
+        self.enter_sec.insert(END,show(2))
+        self.enter_roll.insert(END,show(3))
+
+        self.Enter_present.delete(0, tk.END)
+        self.Enter_absent.delete(0, tk.END)
+        self.enter_percent.delete("1.0", "end")
+        self.enter_total.delete(0, tk.END)
+
+    global func
+    def func(self,id):
+        uid = id.get()
+        
+        self.enter_name.delete("1.0", "end")
+        self.enter_class.delete("1.0", "end")
+        self.enter_sec.delete("1.0", "end")
+        self.enter_roll.delete("1.0", "end")
+
+
+        stu_details(self,uid)
+        stu_fetch(self)
+
+        #id.set("")
+        
+    global percentage
+    def percentage (self,id,t,p,a):
+        self.enter_percent.delete("1.0", "end")
+        uid = id.get()
+        pres = p.get()
+        total = t.get()
+        ab = a.get()
+        atd_update(uid,pres,ab,total)
+        percn = show_percent()
+        self.enter_percent.insert(END,percn)
+        
+    
+        

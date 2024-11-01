@@ -29,10 +29,12 @@ class tkinterApp(tk.Tk):
 
         # __init__ function for class Tk
         tk.Tk.__init__(self, *args, **kwargs)
-
+        
+        self.state('zoomed')
         # Creating a container
         container = tk.Frame(self,height=1020,width=1960)
         container.pack(side="top", fill="both", expand=True)
+    
 
         container.grid_rowconfigure(0, weight=1)
         container.grid_columnconfigure(0, weight=1)
