@@ -12,7 +12,7 @@ name varchar(30)
 
 create table students
 (
-userid varchar(15) primay key,
+userid varchar(15) primary key,
 name varchar(30),
 roll int(3),
 class int(2),
