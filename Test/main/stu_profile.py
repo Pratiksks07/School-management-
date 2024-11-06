@@ -31,6 +31,41 @@ class profile_stu(tk.Frame):
         self.configure(highlightcolor="#000000")
 
         self.top = self
+
+        self.upper = tk.Label(self.top)
+        self.upper.place(relx=0.001, rely=0.0, relheight=0.240
+                , relwidth=0.999)
+        self.upper.configure(background="#8AA3F7")
+        self.upper.configure(foreground="#000000")
+        self.upper.configure(highlightbackground="#d9d9d9")
+        self.upper.configure(highlightcolor="#000000")
+        self.upper.configure(relief="raised")
+
+        self.heading = tk.Message(self.top)
+        self.heading.place(relx=0.065, rely=0.0, relheight=0.200
+                , relwidth=0.600)
+        self.heading.configure(background="#8AA3F7")
+        self.heading.configure(font="-family {Sitka Display} -size 55 -weight bold")
+        self.heading.configure(foreground="#000000")
+        self.heading.configure(highlightbackground="#d9d9d9")
+        self.heading.configure(highlightcolor="#000000")
+        self.heading.configure(padx="1")
+        self.heading.configure(pady="1")
+        self.heading.configure(text='''Profile''')
+        self.heading.configure(width=600)
+        self.heading.configure(anchor="w")
+
+        self.akela = tk.Label(self.top)
+        self.akela.place(relx=0.800, rely=0.0, height=150, width=150)  # Adjusted position for visibility
+        self.akela.configure(
+            background="#d9d9d9",
+            foreground="#000000",
+            anchor='center')
+        photo_location = os.path.join(os.path.dirname(__file__), "../Image/akela.png")
+        self.akela_img = tk.PhotoImage(file=photo_location)
+        self.akela.configure(image=self.akela_img)
+        self.akela.configure(relief="flat")
+
         
         self.tphone = tk.Text(self.top)
         self.tphone.place(relx=0.242, rely=0.893, relheight=0.040
@@ -220,7 +255,7 @@ class profile_stu(tk.Frame):
         self.Button1.configure(relief="flat")
 
         self.Label1 = tk.Label(self.top)
-        self.Label1.place(relx=0.578, rely=0.183, height=352, width=381)
+        self.Label1.place(relx=0.600, rely=0.310, height=352, width=381)
         self.Label1.configure(activebackground="#d9d9d9")
         self.Label1.configure(activeforeground="black")
         self.Label1.configure(anchor='w')
@@ -230,23 +265,13 @@ class profile_stu(tk.Frame):
         self.Label1.configure(foreground="#000000")
         self.Label1.configure(highlightbackground="#d9d9d9")
         self.Label1.configure(highlightcolor="#000000")
-        photo_location = os.path.join(_location,"..\\Image\\login (1).png")
+        photo_location = os.path.join(_location,"..\\Image\\profile_icon.png")
         global _img0
         _img0 = tk.PhotoImage(file=photo_location)
         self.Label1.configure(image=_img0)
-
-        self.heading = tk.Message(self.top)
-        self.heading.place(relx=0.047, rely=0.061, relheight=0.11
-                , relwidth=0.161)
-        self.heading.configure(background="#dbe6ff")
-        self.heading.configure(font="-family {Sitka Display} -size 48 -weight bold")
-        self.heading.configure(foreground="#000000")
-        self.heading.configure(highlightbackground="#d9d9d9")
-        self.heading.configure(highlightcolor="#000000")
-        self.heading.configure(padx="1")
-        self.heading.configure(pady="1")
-        self.heading.configure(text='''Profile''')
-        self.heading.configure(width=206)
+        self.Label1.configure(relief="flat")
+        self.Label1.configure(anchor="center")
+        
 
         
         self.name = tk.Message(self.top)

@@ -17,22 +17,43 @@ class atd_stu(tk.Frame):
         self.configure(highlightcolor="#000000")
 
         self.top = self
+        
+        self.upper = tk.Label(self.top)
+        self.upper.place(relx=0.001, rely=0.0, relheight=0.240
+                , relwidth=0.999)
+        self.upper.configure(background="#8AA3F7")
+        self.upper.configure(foreground="#000000")
+        self.upper.configure(highlightbackground="#d9d9d9")
+        self.upper.configure(highlightcolor="#000000")
+        self.upper.configure(relief="raised")
 
         self.atd = tk.Message(self.top)
-        self.atd.place(relx=0.078, rely=0.167, relheight=0.085, relwidth=0.334)
-        self.atd.configure(background="#dbe6ff")
-        self.atd.configure(font="-family {Sitka Display} -size 48 -weight bold")
+        self.atd.place(relx=0.065, rely=0.0, relheight=0.200, relwidth=0.600)
+        self.atd.configure(background="#8AA3F7")
+        self.atd.configure(font="-family {Sitka Display} -size 55 -weight bold")
         self.atd.configure(foreground="#000000")
         self.atd.configure(highlightbackground="#d9d9d9")
         self.atd.configure(highlightcolor="#000000")
         self.atd.configure(padx="1")
         self.atd.configure(pady="1")
-        self.atd.configure(text='''ATTENDENCE''')
-        self.atd.configure(width=427)
+        self.atd.configure(text='''Attendance''')
+        self.atd.configure(width=600)
+        self.atd.configure(anchor="w")
+
+        self.calender = tk.Label(self.top)
+        self.calender.place(relx=0.800, rely=0.0, height=150, width=150)  # Adjusted position for visibility
+        self.calender.configure(
+            background="#d9d9d9",
+            foreground="#000000",
+            anchor='center')
+        photo_location = os.path.join(os.path.dirname(__file__), "../Image/calender.png")
+        self.admi_img = tk.PhotoImage(file=photo_location)
+        self.calender.configure(image=self.admi_img)
+        self.calender.configure(relief="flat")
+
 
         self.total = tk.Message(self.top)
-        self.total.place(relx=0.117, rely=0.426, relheight=0.044, relwidth=0.076)
-
+        self.total.place(relx=0.100, rely=0.426, relheight=0.044, relwidth=0.076)
         self.total.configure(background="#dbe6ff")
         self.total.configure(font="-family {@Yu Gothic UI Semibold} -size 20 -weight bold")
         self.total.configure(foreground="#000000")
@@ -42,9 +63,10 @@ class atd_stu(tk.Frame):
         self.total.configure(pady="1")
         self.total.configure(text='''Total -''')
         self.total.configure(width=97)
+        self.total.configure(anchor='w')
 
         self.pst = tk.Message(self.top)
-        self.pst.place(relx=0.102, rely=0.502, relheight=0.059, relwidth=0.091)
+        self.pst.place(relx=0.100, rely=0.502, relheight=0.059, relwidth=0.091)
         self.pst.configure(background="#dbe6ff")
         self.pst.configure(font="-family {@Yu Gothic UI Semibold} -size 20 -weight bold")
         self.pst.configure(foreground="#000000")
@@ -54,6 +76,7 @@ class atd_stu(tk.Frame):
         self.pst.configure(pady="1")
         self.pst.configure(text='''Present -''')
         self.pst.configure(width=116)
+        self.pst.configure(anchor="w")
 
         self.total_opt = tk.Text(self.top)
         self.total_opt.place(relx=0.211, rely=0.426, relheight=0.052
@@ -86,7 +109,7 @@ class atd_stu(tk.Frame):
         self.pst_opt.bind("<Key>", lambda e: "break")
 
         self.abst = tk.Message(self.top)
-        self.abst.place(relx=0.102, rely=0.578, relheight=0.058, relwidth=0.098)
+        self.abst.place(relx=0.100, rely=0.578, relheight=0.058, relwidth=0.098)
         self.abst.configure(background="#dbe6ff")
         self.abst.configure(font="-family {@Yu Gothic UI Semibold} -size 20 -weight bold")
         self.abst.configure(foreground="#000000")
@@ -96,9 +119,10 @@ class atd_stu(tk.Frame):
         self.abst.configure(pady="1")
         self.abst.configure(text='''Absent -''')
         self.abst.configure(width=126)
+        self.abst.configure(anchor='w')
 
         self.per = tk.Message(self.top)
-        self.per.place(relx=0.086, rely=0.7, relheight=0.088, relwidth=0.184)
+        self.per.place(relx=0.100, rely=0.7, relheight=0.088, relwidth=0.184)
         self.per.configure(background="#dbe6ff")
         self.per.configure(font="-family {@Yu Gothic UI Semibold} -size 36 -weight bold")
         self.per.configure(foreground="#000000")
@@ -108,6 +132,7 @@ class atd_stu(tk.Frame):
         self.per.configure(pady="1")
         self.per.configure(text='''Percent -''')
         self.per.configure(width=235)
+        self.per.configure(anchor='w')
 
         self.Button1 = tk.Button(self.top,command=lambda:self.student(controller))
         self.Button1.place(relx=0.82, rely=0.860, height=60, width=160)
@@ -128,7 +153,7 @@ class atd_stu(tk.Frame):
 
 
         self.Button = tk.Button(self.top, command= lambda:self.percent_show())
-        self.Button.place(relx=0.400, rely=0.860, height=60, width=160)
+        self.Button.place(relx=0.100, rely=0.860, height=60, width=160)
         self.Button.configure(activebackground="#d9d9d9")
         self.Button.configure(activeforeground="black")
         self.Button.configure(background="#f2f6fe")
@@ -177,7 +202,7 @@ class atd_stu(tk.Frame):
         self.per_opt.bind("<Key>", lambda e: "break")
 
         self.Label1 = tk.Label(self.top)
-        self.Label1.place(relx=0.555, rely=0.183, height=341, width=338)
+        self.Label1.place(relx=0.600, rely=0.290, height=341, width=338)
         self.Label1.configure(activebackground="#d9d9d9")
         self.Label1.configure(activeforeground="black")
         self.Label1.configure(anchor='w')

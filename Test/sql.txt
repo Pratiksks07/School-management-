@@ -26,16 +26,16 @@ passwd varchar(15),
 totaldays int,
 present int,
 absent int,
-percent int
+percent double(5,2)
 );
 
 create table message
 (
-userid varchar(15) primay key,
+userid varchar(15) ,
 name varchar(30),
 type char(2),
 message longtext,
-assignment longblob
+date datetime
 );
 
 
@@ -47,44 +47,10 @@ insert into login values
 
 
 
-        self.tsec = tk.Message(self.top)
-        self.tsec.place(relx=0.242, rely=0.436, relheight=0.040
-                , relwidth=0.175)
-        self.tsec.configure(background="white")
-        self.sec.configure(font="-family {Arial} -size 16 -weight bold")
-        self.tsec.configure(foreground="black")
-        self.tsec.configure(highlightbackground="#d9d9d9")
-        self.tsec.configure(highlightcolor="#000000")
-        self.tsec.configure(insertbackground="#000000")
-        self.tsec.configure(selectbackground="#d9d9d9")
-        self.tsec.configure(selectforeground="black")
-        self.sec.configure(text=profile(2))
-        self.sec.configure(width=102)
-        
-
-        self.sec = tk.Message(self.top)
-        self.sec.place(relx=0.07, rely=0.411, relheight=0.075, relwidth=0.08)
-        self.sec.configure(background="#dbe6ff")
-        self.sec.configure(cursor="fleur")
-        self.sec.configure(font="-family {Arial} -size 16 -weight bold")
-        self.sec.configure(foreground="#000000")
-        self.sec.configure(highlightbackground="#d9d9d9")
-        self.sec.configure(highlightcolor="#000000")
-        self.sec.configure(padx="1")
-        self.sec.configure(pady="1")
-        self.sec.configure(text='''Sec :''')
-        self.sec.configure(width=102)
+#a8c4fa
+#004aad
+#5de0e6
 
 
-        self.sec = tk.Message(self.top)
-        self.sec.place(relx=0.07, rely=0.411, relheight=0.075, relwidth=0.08)
-        self.sec.configure(background="#dbe6ff")
-        self.sec.configure(cursor="fleur")
-        self.sec.configure(font="-family {Arial} -size 16 -weight bold")
-        self.sec.configure(foreground="#000000")
-        self.sec.configure(highlightbackground="#d9d9d9")
-        self.sec.configure(highlightcolor="#000000")
-        self.sec.configure(padx="1")
-        self.sec.configure(pady="1")
-        self.sec.configure(text='''Sec :''')
-        self.sec.configure(width=102)
+#dbe6ff
+#f2f6fe

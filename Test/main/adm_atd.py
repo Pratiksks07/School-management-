@@ -22,6 +22,42 @@ class atd_admin(tk.Frame):
 
         self.top = self
 
+        self.upper = tk.Label(self.top)
+        self.upper.place(relx=0.001, rely=0.0, relheight=0.240
+                , relwidth=0.999)
+        self.upper.configure(background="#8AA3F7")
+        self.upper.configure(foreground="#000000")
+        self.upper.configure(highlightbackground="#d9d9d9")
+        self.upper.configure(highlightcolor="#000000")
+        self.upper.configure(relief="raised")
+
+        self.heading = tk.Label(self.top)
+        self.heading.place(relx=0.065, rely=0.0, relheight=0.200
+                , relwidth=0.600)
+        self.heading.configure(activebackground="#dbe6ff")
+        self.heading.configure(activeforeground="black")
+        self.heading.configure(anchor='w')
+        self.heading.configure(background="#8AA3F7")
+        self.heading.configure(compound='left')
+        self.heading.configure(disabledforeground="#a3a3a3")
+        self.heading.configure(font="-family {Sitka Display} -size 55 -weight bold")
+        self.heading.configure(foreground="#000000")
+        self.heading.configure(highlightbackground="#d9d9d9")
+        self.heading.configure(highlightcolor="#000000")
+        self.heading.configure(text='''Attendance''')
+
+        self.calender = tk.Label(self.top)
+        self.calender.place(relx=0.800, rely=0.0, height=150, width=150)  # Adjusted position for visibility
+        self.calender.configure(
+            background="#d9d9d9",
+            foreground="#000000",
+            anchor='center')
+        photo_location = os.path.join(os.path.dirname(__file__), "../Image/calender.png")
+        self.admi_img = tk.PhotoImage(file=photo_location)
+        self.calender.configure(image=self.admi_img)
+        self.calender.configure(relief="flat")
+
+
         self.enter_total = tk.Entry(self.top, textvariable=total)
         self.enter_total.place(relx=0.609, rely=0.331, height=30, relwidth=0.128)
 
@@ -327,19 +363,7 @@ class atd_admin(tk.Frame):
         self.search.configure(image=_img4)
         self.search.configure(relief="flat")
 
-        self.heading = tk.Label(self.top)
-        self.heading.place(relx=0.055, rely=0.062, height=71, width=405)
-        self.heading.configure(activebackground="#dbe6ff")
-        self.heading.configure(activeforeground="black")
-        self.heading.configure(anchor='w')
-        self.heading.configure(background="#dbe6ff")
-        self.heading.configure(compound='left')
-        self.heading.configure(disabledforeground="#a3a3a3")
-        self.heading.configure(font="-family {Sitka Display} -size 48 -weight bold")
-        self.heading.configure(foreground="#000000")
-        self.heading.configure(highlightbackground="#d9d9d9")
-        self.heading.configure(highlightcolor="#000000")
-        self.heading.configure(text='''Attendance''')
+        
 
 
     def admin(self,controller):

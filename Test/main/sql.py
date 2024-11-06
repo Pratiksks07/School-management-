@@ -155,4 +155,75 @@ def stu_percent():
         value = [total,present,absent,percentage]
     return value
 
+
+def adm_msgsent(msg):
+    Q = "Insert into message values (%s,%s,%s,%s,now());"
+    val = ("admin","admin","A",msg)
+
+    cur.execute(Q,val)
+    con.commit()
+
+    messagebox.showinfo(title="Message Sent", message="Message has been sent!!")
+
+
+def stu_msgsent(msg):
+    Q = "Select name from students where userid = %s;"
+    val = [userid]
+
+    cur.execute(Q,val)
+    res = cur.fetchall()
+
+    for row in res:
+        for i in row:
+            name = i
+
     
+    Q = "Insert into message values (%s,%s,%s,%s,now());"
+    val = (userid,name,"S",msg)
+
+    cur.execute(Q,val)
+    con.commit()
+
+    messagebox.showinfo(title="Message Sent", message="Message has been sent!!")
+
+
+def fetch_data_admin(type):
+    if type == "Self":
+        t = "A"
+    else:
+        t = "S"
+
+    Q = "Select userid,name,message from message where type = %s order by date desc;"
+    val = [t]
+    cur.execute(Q,val)
+    rows = cur.fetchall()
+    
+    columns = [description[0] for description in cur.description]
+    return columns,rows
+
+def fetch_data_stu(type):
+    if type == "Self":
+        t = userid
+    else:
+        t = "A"
+
+    Q = "Select userid,name,message from message where type = %s or userid = %s order by date desc;"
+    val = [t,t]
+    cur.execute(Q,val)
+    rows = cur.fetchall()
+    
+    columns = [description[0] for description in cur.description]
+    return columns,rows
+
+def format_table(columns, rows):
+    # Create a header
+    header = " | ".join(f"{col:<15}" for col in columns)  # Adjust column width as needed
+    separator = "-" * len(header)
+    
+    # Create each row of data
+    data = "\n".join(" | ".join(f"{str(item):<15}" for item in row) for row in rows)
+    
+    # Combine header, separator, and data
+    table = f"{header}\n{separator}\n{data}"
+    return table
+
