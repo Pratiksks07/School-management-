@@ -105,7 +105,7 @@ def fetch(index):
     return var[index]
 
 
-def stu_details(self,id):
+def stu_details(self,id): # Fetch details for attendance
 
     user_id = id
     global variable
@@ -133,6 +133,7 @@ def atd_update(id,pres,ab,ttl):
     total_days = int(ttl)
 
     percent = pres_days/total_days*100
+    
     print(user_id,pres_days,ab_days,percent)
     Q = "Update students set totaldays = %s, present = %s, absent = %s, percent = %s where userid = %s"
     val = [total_days,pres_days,ab_days,percent,user_id]
@@ -201,6 +202,7 @@ def fetch_data_admin(type):
     columns = [description[0] for description in cur.description]
     return columns,rows
 
+
 def fetch_data_stu(type):
     if type == "Self":
         t = userid
@@ -215,6 +217,8 @@ def fetch_data_stu(type):
     columns = [description[0] for description in cur.description]
     return columns,rows
 
+
+
 def format_table(columns, rows):
     # Create a header
     header = " | ".join(f"{col:<15}" for col in columns)  # Adjust column width as needed
@@ -227,3 +231,30 @@ def format_table(columns, rows):
     table = f"{header}\n{separator}\n{data}"
     return table
 
+
+
+def ques(qus,stu_cls,sub,ch):
+    ques_var = str(qus)
+    cls_var = stu_cls.get()
+    subj_var = sub.get()
+    chap_var = ch.get()
+
+    print(cls_var,subj_var,chap_var,ques_var)
+    Q = "Insert into questions values (%s,%s,%s,%s);"
+    val = [cls_var,subj_var,chap_var,ques_var]
+
+    cur.execute(Q,val)
+    con.commit()
+    
+
+def ques_fetch(stu_cls,sub,ch):
+    cls_var = stu_cls.get()
+    subj_var = sub.get()
+    chap_var = ch.get()
+
+    Q = "Select ques from questions where class = %s and subject = %s and chapter = %s order by rand() limit 5;"
+    val = [cls_var,subj_var,chap_var]
+
+    cur.execute(Q,val)
+    res = cur.fetchall()
+    return res

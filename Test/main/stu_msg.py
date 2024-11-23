@@ -31,6 +31,19 @@ class msg_stu(tk.Frame):
         self.upper.configure(highlightcolor="#000000")
         self.upper.configure(relief="raised")
 
+
+        self.message_icon = tk.Label(self.top)
+        self.message_icon.place(relx=0.800, rely=0.0, height=150, width=150)  # Adjusted position for visibility
+        self.message_icon.configure(
+            background="#d9d9d9",
+            foreground="#000000",
+            anchor='center')
+        photo_location = os.path.join(os.path.dirname(__file__), "../Image/Message_icon.png")
+        self.message_img = tk.PhotoImage(file=photo_location)
+        self.message_icon.configure(image=self.message_img)
+        self.message_icon.configure(relief="flat")
+
+
         self.Message1 = tk.Message(self.top)
         self.Message1.place(relx=0.065, rely=0.0, relheight=0.200
                 , relwidth=0.600)

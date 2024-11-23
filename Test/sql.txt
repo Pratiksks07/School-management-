@@ -10,6 +10,7 @@ type char(2),
 name varchar(30)
 );
 
+
 create table students
 (
 userid varchar(15) primary key,
@@ -29,6 +30,7 @@ absent int,
 percent double(5,2)
 );
 
+
 create table message
 (
 userid varchar(15) ,
@@ -37,6 +39,19 @@ type char(2),
 message longtext,
 date datetime
 );
+
+
+create table questions
+(
+    class varchar(10),
+    subject varchar(20),
+    chapter varchar(30),
+    ques longtext
+);
+
+
+insert into login values
+("admin", "admin", "A", "admin1");
 
 
 

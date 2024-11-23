@@ -31,6 +31,7 @@ class atd_admin(tk.Frame):
         self.upper.configure(highlightcolor="#000000")
         self.upper.configure(relief="raised")
 
+
         self.heading = tk.Label(self.top)
         self.heading.place(relx=0.065, rely=0.0, relheight=0.200
                 , relwidth=0.600)
@@ -330,6 +331,7 @@ class atd_admin(tk.Frame):
         self.enter_sec.configure(wrap="word")
         self.enter_sec.bind("<Button-1>", lambda e: "break")
         self.enter_sec.bind("<Key>", lambda e: "break")
+        
 
         self.enter_roll = tk.Text(self.top)
         self.enter_roll.place(relx=0.133, rely=0.794, relheight=0.037
@@ -381,18 +383,6 @@ class atd_admin(tk.Frame):
 
 
 
-    global stu_fetch
-    def stu_fetch(self):
-        from sql import show
-        self.enter_name.insert(END,show(0))
-        self.enter_class.insert(END,show(1))
-        self.enter_sec.insert(END,show(2))
-        self.enter_roll.insert(END,show(3))
-
-        self.Enter_present.delete(0, tk.END)
-        self.Enter_absent.delete(0, tk.END)
-        self.enter_percent.delete("1.0", "end")
-        self.enter_total.delete(0, tk.END)
 
     global func
     def func(self,id):
@@ -408,6 +398,22 @@ class atd_admin(tk.Frame):
         stu_fetch(self)
 
         #id.set("")
+
+
+    global stu_fetch
+    def stu_fetch(self):
+        from sql import show
+        self.enter_name.insert(END,show(0))
+        self.enter_class.insert(END,show(1))
+        self.enter_sec.insert(END,show(2))
+        self.enter_roll.insert(END,show(3))
+
+        self.Enter_present.delete(0, tk.END)
+        self.Enter_absent.delete(0, tk.END)
+        self.enter_percent.delete("1.0", "end")
+        self.enter_total.delete(0, tk.END)
+
+
         
     global percentage
     def percentage (self,id,t,p,a):
@@ -420,5 +426,5 @@ class atd_admin(tk.Frame):
         percn = show_percent()
         self.enter_percent.insert(END,percn)
         
-    
+        
         

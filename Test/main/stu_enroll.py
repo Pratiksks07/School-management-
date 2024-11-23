@@ -34,6 +34,8 @@ class stu_en(tk.Frame):
         mname_var = tk.StringVar()
         address_var = tk.StringVar()
         phone_var = tk.StringVar()
+
+        
         
 
         self.upper = tk.Label(self.self)
@@ -44,6 +46,7 @@ class stu_en(tk.Frame):
         self.upper.configure(highlightbackground="#d9d9d9")
         self.upper.configure(highlightcolor="#000000")
         self.upper.configure(relief="raised")
+
 
 
         self.heading = tk.Label(self.self)
@@ -60,6 +63,8 @@ class stu_en(tk.Frame):
         self.heading.configure(highlightbackground="#d9d9d9")
         self.heading.configure(highlightcolor="#000000")
         self.heading.configure(text='''Student Enrollment''')
+        
+
 
         self.enroll_icon = tk.Label(self.self)
         self.enroll_icon.place(relx=0.800, rely=0.0, height=150, width=150)  # Adjusted position for visibility
